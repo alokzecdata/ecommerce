@@ -1,6 +1,8 @@
-// src/app.js
-const express = require('express');
-const cors = require('cors');
+// src/app.jsconst 
+import express from 'express';
+import cors from 'cors';
+import userRoutes from './routes/user.js';
+import productRoutes from  './routes/product.js';
 
 const app = express();
 
@@ -14,8 +16,11 @@ app.get('/', (req, res) => {
 });
 
 
+app.use('/api/users', userRoutes);
+app.use("/api/products", productRoutes);
 
 
 
 
-module.exports = app;
+
+export default app;
